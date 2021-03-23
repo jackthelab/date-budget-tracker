@@ -12,20 +12,38 @@ export default class MainPage extends React.Component {
         super()
 
         this.state = {
-            total: 0
+            predateCost: 0,
+            dinnerCost: 0,
+            activityCost: 0
         }
 
+    }
+
+    totalCost = () => {
+        return this.state.predateCost + this.state.dinnerCost + this.state.activityCost
+    }
+
+    newPredateCost = (cost) => {
+        this.setState({ predateCost: cost })
+    }
+
+    newDinnerCost = (cost) => {
+        this.setState({ dinnerCost: cost })
+    }
+
+    newActivityCost = (cost) => {
+        this.setState({ activityCost: cost })
     }
     
     render() {
         return (
             <div>
-                <NavBar runningTotal={this.state.total} />
+                <NavBar runningTotal={this.totalCost()} />
                 <div className="container">
                     <div className="row">
-                        <PreDate />
-                        <Dinner />
-                        <Activity />
+                        <PreDate adjustTotal={this.newPredateCost} />
+                        <Dinner adjustTotal={this.newDinnerCost} />
+                        <Activity adjustTotal={this.newActivityCost} />
                     </div>
                 </div>
             </div>

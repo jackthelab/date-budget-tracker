@@ -16,7 +16,7 @@ export default class Activity extends React.Component {
         super()
 
         this.state = {
-            selectedActivity: {name: "There is nothing chose yet.", price: 0}
+            selectedActivity: {name: "There is nothing chosen.", price: 0}
         }
     }
 
@@ -24,7 +24,14 @@ export default class Activity extends React.Component {
         this.setState({
             selectedActivity: activity
         })
+        this.props.adjustTotal(this.state.selectedActivity.price)
     }
+
+    // removeSelection = () => {
+    //     this.setState({
+    //         selectedActivity: {name: "There is nothing chosen.", price: 0}
+    //     })
+    // }
 
     render() {
         return (

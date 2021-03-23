@@ -10,7 +10,7 @@ export default class OptionsList extends React.Component {
                     <li key={option.id} className="list-group-item">
                         <h3>{option.name}</h3>
                         <h5>${option.price}</h5>
-                        <button onClick={() => {this.props.clickAction(option)}} className="btn btn-success">Select This Item</button>
+                        <button onClick={() => {this.props.clickAction(option)}} className="btn btn-success">Double Click to Update Cost</button>
                     </li>
                 )}
             </ul>
