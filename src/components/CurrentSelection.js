@@ -9,6 +9,7 @@ export default class CurrentSelection extends React.Component {
                 <div className="card-body">
                     <h3 className="card-title">{this.props.choice.name}</h3>
                     <h5 className="card-text">${this.props.choice.price}</h5>
+                    <button className="btn btn-danger" onClick={() => {this.props.clickAction()}}>Remove Selection</button>
                 </div>
 
             </div>

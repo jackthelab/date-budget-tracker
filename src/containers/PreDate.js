@@ -16,13 +16,19 @@ export default class PreDate extends React.Component {
         super()
 
         this.state = {
-            selectedActivity: {name: "There is nothing chose yet.", price: 0}
+            selectedActivity: {name: "There is nothing chosen.", price: 0}
         }
     }
 
-    handleClick = (activity) => {
+    changeSelection = (activity) => {
         this.setState({
             selectedActivity: activity
+        })
+    }
+
+    removeSelection = () => {
+        this.setState({
+            selectedActivity: {name: "There is nothing chosen.", price: 0}
         })
     }
 
@@ -31,8 +37,8 @@ export default class PreDate extends React.Component {
             <div className="col-md-4">
                 
                 <h2 style={{height: "10rem"}}>Any purchases before the date?</h2>
-                <OptionsList options={this.predateOptions} clickAction={this.handleClick} />
-                <CurrentSelection choice={this.state.selectedActivity} />
+                <OptionsList options={this.predateOptions} clickAction={this.changeSelection} />
+                <CurrentSelection choice={this.state.selectedActivity} clickAction={this.removeSelection} />
             </div>
         )
     }

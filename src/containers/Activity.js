@@ -20,7 +20,7 @@ export default class Activity extends React.Component {
         }
     }
 
-    handleClick = (activity) => {
+    changeSelection = (activity) => {
         this.setState({
             selectedActivity: activity
         })
@@ -31,7 +31,7 @@ export default class Activity extends React.Component {
             <div className="col-md-4">
 
                 <h2 style={{height: "10rem"}}>Would you like to add any Activities?</h2>
-                <OptionsList options={this.activityOptions} clickAction={this.handleClick} />
+                <OptionsList options={this.activityOptions} clickAction={this.changeSelection} />
                 <CurrentSelection choice={this.state.selectedActivity} />
 
             </div>
