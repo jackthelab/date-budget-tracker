@@ -20,12 +20,18 @@ export default class Dinner extends React.Component {
         }
     }
 
+    handleClick = (activity) => {
+        this.setState({
+            selectedActivity: activity
+        })
+    }
+
     render() {
         return (
             <div className="col-md-4">
 
                 <h2 style={{height: "10rem"}}>Where would you like to go for dinner?</h2>
-                <OptionsList options={this.dinnerOptions} />
+                <OptionsList options={this.dinnerOptions} clickAction={this.handleClick} />
                 <CurrentSelection choice={this.state.selectedActivity} />
 
             </div>

@@ -20,12 +20,18 @@ export default class Activity extends React.Component {
         }
     }
 
+    handleClick = (activity) => {
+        this.setState({
+            selectedActivity: activity
+        })
+    }
+
     render() {
         return (
             <div className="col-md-4">
 
                 <h2 style={{height: "10rem"}}>Would you like to add any Activities?</h2>
-                <OptionsList options={this.activityOptions} />
+                <OptionsList options={this.activityOptions} clickAction={this.handleClick} />
                 <CurrentSelection choice={this.state.selectedActivity} />
 
             </div>

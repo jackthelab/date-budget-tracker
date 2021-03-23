@@ -20,12 +20,18 @@ export default class PreDate extends React.Component {
         }
     }
 
+    handleClick = (activity) => {
+        this.setState({
+            selectedActivity: activity
+        })
+    }
+
     render() {
         return (
             <div className="col-md-4">
                 
                 <h2 style={{height: "10rem"}}>Any purchases before the date?</h2>
-                <OptionsList options={this.predateOptions} />
+                <OptionsList options={this.predateOptions} clickAction={this.handleClick} />
                 <CurrentSelection choice={this.state.selectedActivity} />
             </div>
         )
